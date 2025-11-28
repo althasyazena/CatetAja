@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="my-css/login.css">
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="img/LogoMascot.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="row login-box mx-auto">
+
+            <!-- LEFT SIDE -->
+            <div class="col-lg-5 p-0">
+                <div class="left-side">
+                    <img class="logoMascot" src="img/LogoMascot.png" alt="">
+                    <img class="bookMascot" src="img/BookMascot.png" alt="">
+                    <img class="lampMascot" src="img/LampMascot.png" alt="">
+                    <img class="mapMascot" src="img/MapMascot.png" alt="">
+                    <img class="pencilMascot" src="img/PencilMascot.png" alt="">
+                </div>
+            </div>
+
+            <div class="col-lg-7 d-flex align-items-center justify-content-center">
+                <div class="form-area px-4 px-md-5 mx-auto">
+
+                    <h1 class="title">Welcome back!</h1>
+                    <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-input" placeholder="Username">
+                    </div>
+
+                    <div class="mb-2 position-relative">
+                        <input type="password" class="form-input" placeholder="Password">
+                        <i class=" eye ri-eye-line"></i>
+                    </div>
+
+                    <p id="errorMsg" style="color: red; font-size: 0.9rem; margin-top: 10px; display: none;">
+                        Username atau password salah!
+                    </p>
+
+                    <a href="#" class="forgot">Forgot Password?</a>
+
+                    <button class="btn-login mt-3">Login</button>
+
+                    <p class="register mt-5">Not a member? <a href="#">Register now</a></p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12.0.2/swiper-bundle.min.js"></script>
+</body>
+
+</html>

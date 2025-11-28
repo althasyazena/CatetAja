@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="my-css/home.css">
+
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <link rel="shortcut icon" href="img/LogoMascot.png" type="image/x-icon">
+</head>
+
+<body>
+
+     <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand brand-custom" href="#">
+                <img src="img/LogoNavbar.png" alt="Logo" width="66" height="92">
+                <span class="text-pink">C</span>
+                <span class="text-yellow">a</span>
+                <span class="text-blue">t</span>
+                <span class="text-orange">e</span>
+                <span class="text-yellow">t</span>
+                <span class="text-blue">A</span>
+                <span class="text-yellow">j</span>
+                <span class="text-pink">a</span>
+                <span class="text-orange">!</span>
+            </a>
+
+            <!-- Hamburger Icon -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#mood-tracker">Mood Tracker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#notes">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#calendar">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#board">Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#todo">ToDo List</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-spacer"></div>
+
+        </div>
+    </nav>
+
+    <section class="mood-tracker" id="mood-tracker">
+        <div class="container text-center py-5">
+            <h1 class="mood-title">How Are You <span class="highlight-blue">Feeling</span> Today?</h1>
+            <p class="mood-desc">Track Your Feelings, <span class="highlight-yellow">One Day at a Time</span></p>
+
+            <div class="row">
+                <div class="col-lg-6 mood-opt">
+                    <button class="happyMascot mood-option" data-mood="Happy">
+                        <img src="img/HappyMascot.png" alt="">
+                    </button>
+                    <button class="anxiousMascot mood-option" data-mood="Anxious">
+                        <img src="img/AnxiousMascot.png" alt="">
+                    </button>
+                    <button class="angryMascot mood-option" data-mood="Angry">
+                        <img src="img/AngryMascot.png" alt="">
+                    </button>
+                    <button class="sadMascot mood-option" data-mood="Sad">
+                        <img src="img/SadMascot.png" alt="">
+                    </button>
+                </div>
+                <div class="col-lg-6 py-5">
+                    <h2 class="weekly-title">Your Weekly Mood Snapshot
+                    </h2>
+
+                    <div id="weeklyMoodContainer" class="weekly-mood-wrapper">
+                        <!-- Card-card akan diisi otomatis dari JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="notes" id="notes">
+        <div class="container text-center py-5">
+            <h1 class="notes-title">What’s on <span class="highlight-pink">Your Mind</span> Today?</h1>
+            <p class="notes-desc">Save Your Thoughts, <span class="highlight-orange">One Note at a Time</span></p>
+        </div>
+
+        <div class="container">
+            <div class="section-header mb-4 d-flex justify-content-between align-items-center">
+                <h1 class="fw-bold">Your Notes</h1>
+                <button class="btn-add" id="openModal">+ Add Note</button>
+            </div>
+
+            <!-- NOTES GRID -->
+            <div class="notes-container" id="notesContainer"></div>
+        </div>
+    </section>
+
+    <!-- Notes Modal -->
+    <div class="note-modal" id="noteModal">
+        <div class="note-modal-box">
+            <h3>Add New Note</h3>
+
+            <input type="text" id="noteTitle" placeholder="Note title...">
+            <textarea id="noteContent" rows="4" placeholder="Write your note..."></textarea>
+
+            <div class="color-picker" id="colorPicker">
+                <div class="color active" data-color="#4DA3FF" style="background:#00A3FE;"></div>
+                <div class="color" data-color="#FFD84C" style="background:#FECE00;"></div>
+                <div class="color" data-color="#FF9ACD" style="background:#FEA1CD;"></div>
+                <div class="color" data-color="#FF8A34" style="background:#FF7300;"></div>
+            </div>
+
+            <div class="modal-btn mt-3">
+                <button class="btn-save" id="saveNote">Save</button>
+                <button class="btn-cancel" id="closeModal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="calendar" id="calendar">
+        <div class="container text-center py-5">
+            <img class="left-img" src="img/BookMascot.png" alt="">
+            <img class="right-img" src="img/LampMascot.png" alt="">
+            <h1 class="calendar-title">Yuk, cek <span class="highlight-blue">jadwal kamu</span> hari ini!</h1>
+            <p class="calendar-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, saepe!</p>
+
+            <a href="calendar.html" class="btn btn-calendar">Lihat Kalender</a>
+        </div>
+
+        <div class="img-decor">
+            <!-- <img class="left-img" src="img/BookMascot.png" alt="">
+            <img class="right-img" src="img/LampMascot.png" alt=""> -->
+        </div>
+    </section>
+
+    <section class="board" id="board">
+        <div class="container text-left py-5">
+            <div class="row">
+                <div class="left-side col-lg-6">
+                    <h1 class="board-title">Tempat Ide dan Catatanmu Kumpul <span class="highlight-blue">Dalam Satu Layar</span></h1>
+                    <p class="board-desc">Tulis apa pun yang muncul di kepala, tempelkan catatan kecil, atau <span class="highlight-yellow">buat sketsa ringan</span> langsung di board ini.</span>
+                    </p>
+
+                    <a href="whiteboard.html" class="btn btn-board">Ayo corat-coret!</a>
+                </div>
+
+                <div class="col-lg-6">
+                    <img class="board-img" src="img/LogoMascot.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="todo" id="todo">
+        <div class="container text-end py-5">
+            <div class="row">
+                
+                <div class="col-lg-6">
+                    <img class="board-img" src="img/mapMap.png" alt="">
+                </div>
+
+                <div class="right-side col-lg-6">
+                    <h1 class="board-title"><span class="highlight-pink">Atur Tugasmu</span> Dengan Lebih Rapi dan Terstruktur</span></h1>
+                    <p class="board-desc">Buat daftar kegiatanmu, beri tanda jika sudah selesai, dan <span class="highlight-yellow">kelola prioritas harianmu</span> dalam satu tempat yang simpel dan mudah digunakan.</span> langsung di board ini.</span>
+                    </p>
+
+                    <a href="todolist.html" class="btn btn-board">Ayo corat-coret!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container py-4">
+
+            <div class="footer-left">
+                <img src="img/LogoMascot.png" alt="Mascot" class="footer-mascot">
+                <p class="footer-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, aperiam?
+                </p>
+            </div>
+
+            <div class="footer-menu">
+                <h4>CatetAja!</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Galery</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <h4>Informasi</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Hubungi Kami</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-menu">
+                <h4>Ikuti Kami</h4>
+                <div class="social-badge">
+                    @CatetAja!.id
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+            <p>© 2025 CatetAja!. All Rights Reserved.</p>
+            <div class="footer-policy">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="home.js"></script>
+    <script src="calendar.js"></script>
+</body>
+
+</html>

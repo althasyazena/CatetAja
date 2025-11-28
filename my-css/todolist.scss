@@ -1,0 +1,485 @@
+// Variables
+$font-family: 'Poppins', sans-serif;
+$primary-blue: #00A3FE;
+$primary-orange: #FF7300;
+$accent-pink: #FEA1CD;
+$accent-yellow: #FECE00;
+$danger-red: #ff4444;
+$dark-blue: #1C274C;
+$gray-light: #e1e5e9;
+$gray-medium: #666;
+$gray-dark: #333;
+$gray-disabled: #999;
+
+
+// Mixins
+@mixin transition($property: all, $duration: 0.3s, $timing: ease-in-out) {
+  transition: $property $duration $timing;
+}
+
+
+@mixin border-radius($radius: 8px) {
+  border-radius: $radius;
+}
+
+
+@mixin box-shadow($shadow: 0 2px 8px rgba(0, 0, 0, 0.1)) {
+  box-shadow: $shadow;
+}
+
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+// Base Styles
+* {
+  font-family: $font-family;
+}
+
+
+// Modal Styles
+.custom-modal {
+  border: 2px solid $primary-blue;
+  @include border-radius(12px);
+  overflow: hidden;
+}
+
+
+.modal-header-custom {
+  padding: 0;
+  overflow: hidden;
+}
+
+
+.header-image {
+  width: 100%;
+  height: auto;
+}
+
+
+.create-text {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+
+.new-task-text {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+
+// Form Inputs
+.custom-input {
+  border: 1px solid #ddd;
+  @include border-radius(8px);
+  padding: 10px 12px;
+
+
+  &:focus {
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 0.2rem rgba($primary-blue, 0.25);
+  }
+}
+
+
+// Category Buttons
+.category-btn {
+  flex: 1;
+  min-width: 80px;
+
+
+  input[type="radio"] {
+    display: none;
+  }
+
+
+  span {
+    display: block;
+    padding: 10px 15px;
+    background: white;
+    border: 2px solid $gray-light;
+    @include border-radius(8px);
+    text-align: center;
+    cursor: pointer;
+    @include transition;
+    font-weight: 500;
+  }
+}
+
+
+// Category Specific Styles
+.important {
+  span {
+    color: $primary-orange;
+    border-color: $primary-orange;
+  }
+
+
+  input[type="radio"]:checked + span {
+    background: $primary-orange;
+    color: white;
+  }
+}
+
+
+.daily {
+  span {
+    color: $accent-pink;
+    border-color: $accent-pink;
+  }
+
+
+  input[type="radio"]:checked + span {
+    background: $accent-pink;
+    color: white;
+  }
+}
+
+
+.school {
+  span {
+    color: $primary-blue;
+    border-color: $primary-blue;
+  }
+
+
+  input[type="radio"]:checked + span {
+    background: $primary-blue;
+    color: white;
+  }
+}
+
+
+// Button Styles
+.add-task-btn {
+  background-color: #CA4102 !important;
+  color: white;
+  @include border-radius(25px);
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  @include transition;
+
+
+  &:hover {
+    background-color: #a83906;
+    color: black;
+  }
+}
+
+
+.calendar-btn {
+  background-color: rgba(255, 255, 255, 0.56);
+  color: black;
+  @include border-radius(25px);
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  @include transition;
+
+
+  i {
+    margin-left: 5px;
+  }
+
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+
+.submit-btn {
+  background-color: $accent-yellow;
+  color: black;
+  border: none;
+  @include border-radius(8px);
+  padding: 12px;
+  font-weight: 600;
+
+
+  &:hover {
+    background-color: darken($accent-yellow, 10%);
+    color: black;
+  }
+}
+
+
+// Modal Body
+.modal-body {
+  padding: 25px;
+}
+
+
+.btn-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 1;
+}
+
+
+// Todo List Section
+.custom-section {
+  background: url('./Group\ 61.png') top center no-repeat; // FIXED: Added the image reference
+  background-size: contain;
+  min-height: 15rem;
+  padding-top: 15rem;
+}
+
+
+h2 {
+  font-weight: 700;
+  font-size: 50px;
+  color: white;
+}
+
+
+.orange-box {
+  background: $primary-orange;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin: 0 -45px;
+  padding: 3rem;
+  min-height: 400px;
+}
+
+
+// Task Items
+.task-item {
+  background: white;
+  @include border-radius(12px);
+  padding: 15px;
+  margin-bottom: 15px;
+  @include box-shadow;
+
+
+  &.completed {
+    .task-title,
+    .task-desc {
+      text-decoration: line-through;
+      color: $gray-disabled;
+    }
+  }
+}
+
+
+.task-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+
+.delete-btn {
+  background: $danger-red !important;
+  color: white !important;
+  @include border-radius(50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0;
+  @include transition;
+
+
+  &:hover {
+    background: rgba($danger-red, 0.5) !important;
+    transform: scale(1.1);
+    font-size: 27px;
+  }
+}
+
+
+.check-btn {
+  background: rgba($dark-blue, 0.5) !important;
+  color: $dark-blue !important;
+  @include border-radius(50%);
+  width: 50px;
+  height: 50px;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0;
+  position: relative;
+  left: -30px;
+  top: 25px;
+  @include transition;
+
+
+  i {
+    font-size: 24px;
+  }
+
+
+  &:hover {
+    background: rgba($dark-blue, 0.3) !important;
+    font-weight: 800;
+    transform: scale(1.1);
+  }
+}
+
+
+.task-details {
+  flex: 1;
+}
+
+
+.task-title {
+  margin: 0 0 5px 0;
+  font-weight: 600;
+}
+
+
+.task-desc {
+  margin: 0 0 10px 0;
+  color: $gray-medium;
+  font-size: 0.9rem;
+}
+
+
+.task-meta {
+  display: flex;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: $gray-medium;
+}
+
+
+.task-deadline {
+  font-weight: 600;
+}
+
+
+.task-category {
+  font-weight: 500;
+
+
+  &.important {
+    color: $primary-orange;
+  }
+
+
+  &.daily {
+    color: $accent-pink;
+  }
+
+
+  &.school {
+    color: $primary-blue;
+  }
+}
+
+
+// Search & Filter Section
+.search-filter-section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  margin-top: 20px;
+  @include border-radius(12px);
+}
+
+
+#searchInput:focus {
+  border-color: $primary-blue !important;
+  box-shadow: inset 0 0 0 0.1rem rgba($primary-orange, 0.87) !important;
+}
+
+
+#searchBtn:hover {
+  background-color: $primary-orange;
+}
+
+
+.category-filter-btn {
+  @include border-radius(20px);
+  padding: 8px 16px;
+  border: 2px solid transparent !important;
+  font-weight: 500;
+  @include transition;
+
+
+  &:hover {
+    @include box-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transform: translateY(-2px);
+  }
+
+
+  &.active {
+    border-color: $gray-dark !important;
+    font-weight: bold;
+  }
+}
+
+
+// Responsive Design
+// Tablet - 768px
+@media (max-width: 768px) {
+  .orange-box {
+    margin-top: -7rem;
+  }
+
+
+  h2 {
+    font-size: 38px;
+  }
+
+
+  .add-task-btn,
+  .calendar-btn {
+    font-size: 15px;
+  }
+
+
+  .category-filters {
+    margin-top: 15px;
+    justify-content: center !important;
+  }
+}
+
+
+// Mobile - 480px
+@media (max-width: 480px) {
+  .custom-section {
+    padding-top: 20rem !important;
+    margin-bottom: -5rem !important;
+    padding-bottom: -5rem !important;
+  }
+
+
+  .orange-box {
+    margin-top: -20rem;
+  }
+
+
+  h2 {
+    font-size: 32px;
+  }
+
+
+  .add-task-btn,
+  .calendar-btn {
+    font-size: 16px;
+  }
+
+
+  .task-title {
+    font-size: 1rem;
+  }
+
+
+  .task-desc {
+    font-size: 0.85rem;
+  }
+
+
+  .task-meta {
+    font-size: 0.75rem;
+  }
+}

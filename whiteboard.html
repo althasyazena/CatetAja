@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whiteboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="my-css/whiteboard.css">
+
+    <link rel="shortcut icon" href="img/LogoMascot.png" type="image/x-icon">
+</head>
+
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="image-sequence">
+                <img src="img/BookMascot.png" class="loading-image active" alt="Loading 1">
+                <img src="img/LampMascot.png" class="loading-image" alt="Loading 2">
+                <img src="img/MapMascot.png" class="loading-image" alt="Loading 3">
+                <img src="img/PencilMascot.png" class="loading-image" alt="Loading 4">
+            </div>
+            <h2>Loading Whiteboard...</h2>
+            <p>Getting your creative space ready! </p>
+        </div>
+    </div>
+
+
+    <!-- Main Container -->
+    <div class="container-fluid p-0">
+        <!-- Header Section -->
+        <header class="bg-white p-3 shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <button id="backBtn" class="btn btn-primary back-btn">
+                    <i class="ri-arrow-left-line"></i> Back
+                </button>
+                <!-- Empty div to balance the layout -->
+                <div></div>
+            </div>
+           
+            <div class="header-image mb-3">
+                <img src="img/HeaderBoard.png" alt="Whiteboard Header" class="img-fluid rounded">
+            </div>
+           
+            <div class="toolbar d-flex flex-wrap justify-content-center align-items-center gap-3 mb-3">
+                <button id="drawBtn" class="btn btn-warning tool-btn active">Draw</button>
+                <button id="stickyBtn" class="btn btn-warning tool-btn">Sticky Note</button>
+                <button id="eraseBtn" class="btn btn-warning tool-btn">Erase</button>
+                <button id="clearBtn" class="btn btn-warning tool-btn">Clear All</button>
+                <input type="color" id="colorPicker" value="#ff6b6b" class="color-picker">
+                <input type="range" id="brushSize" min="1" max="20" value="3" class="brush-slider">
+            </div>
+
+
+            <!-- History Controls moved below toolbar -->
+            <div class="history-controls d-flex justify-content-center gap-3">
+                <button id="undoBtn" class="btn btn-secondary history-btn">↩️ Undo</button>
+                <button id="redoBtn" class="btn btn-secondary history-btn">↪️ Redo</button>
+            </div>
+        </header>
+
+
+        <!-- Whiteboard Controls -->
+        <div class="whiteboard-controls">
+            <button id="saveBtn" class="whiteboard-btn save-btn" title="Save Whiteboard">
+                <i class="ri-download-line"></i>
+            </button>
+            <button id="loadBtn" class="whiteboard-btn load-btn" title="Load Image">
+                <i class="ri-upload-line"></i>
+            </button>
+        </div>
+
+
+        <!-- Whiteboard Canvas -->
+        <div class="whiteboard-container">
+            <canvas id="whiteboard"></canvas>
+        </div>
+    </div>
+
+
+
+
+    <!-- Custom JS -->
+    <script src="whiteboard.js"></script>
+</body>
+</html>

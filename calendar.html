@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KalenderCatet</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="my-css/calendar.css">
+
+    <link rel="shortcut icon" href="img/LogoMascot.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="container py-4">
+        <div class="row g-4">
+
+            <!--  LEFT: Kalender  -->
+            <div class="col-lg-8 col-md-7">
+                <div class="calendar-left">
+
+                    <div class="calendar-header">
+                        <h1 class="calendar-title">Hai! Yuk <span class="highlight-orange">atur harimu</span> hari ini</h1>
+                        <p class="calendar-desc">Biar semua rencana kamu <span class="highlight-yellow">lebih rapi dan gampang diingat.</span></p>
+                    </div>
+
+                    <div class="month-year d-flex align-items-center justify-content-between">
+                        <button id="prevMonth"><ion-icon name="chevron-back-outline"></ion-icon></button>
+
+                        <h2 id="currentMonth">Desember 2025</h2>
+
+                        <button id="nextMonth"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+                    </div>
+
+                    <div class="weekdays">
+                        <div class="weekday">Min</div>
+                        <div class="weekday">Sen</div>
+                        <div class="weekday">Sel</div>
+                        <div class="weekday">Rab</div>
+                        <div class="weekday">Kam</div>
+                        <div class="weekday">Jum</div>
+                        <div class="weekday">Sab</div>
+                    </div>
+
+                    <div class="days-grid" id="daysGrid"></div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT: Schedule Sidebar -->
+            <div class="col-lg-4 col-md-5">
+                <div class="calendar-right p-3">
+
+                    <div class="schedule-section">
+                        <h3>
+                            <ion-icon name="checkbox"></ion-icon> 
+                            Schedule Kamu
+                        </h3>
+
+                        <div class="schedule-list" id="scheduleList"></div>
+                    </div>
+
+                    <button class="add-event-btn mt-3 w-100" id="addEventBtn">
+                        <ion-icon name="add-circle"></ion-icon> 
+                        Tambah Jadwal
+                    </button>
+
+                    <a href="todolist.html" class=" add-todolist">Lihat To Do List!</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="-Modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tambah Jadwal Baru</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Judul Kegiatan</label>
+                    <input type="text" id="eventTitle" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDate">Tanggal</label>
+                    <input type="date" id="eventDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventTime">Waktu</label>
+                    <input type="time" id="eventTime" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDescription">Deskripsi</label>
+                    <textarea id="eventDescription"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="calendar.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

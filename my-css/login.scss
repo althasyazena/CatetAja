@@ -1,0 +1,146 @@
+// Google Font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
+
+// Font Variable
+$font-family: "Poppins", sans-serif;
+
+body {
+  font-family: $font-family;
+}
+
+/* =========================
+        WRAPPER BOX
+========================= */
+.login-box {
+  max-width: 1200px;
+  height: 100%;
+  min-height: 630px;
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+  /* =========================
+            LEFT SIDE
+  ========================= */
+  .left-side {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #FFED9D;
+
+    img {
+      position: absolute;
+      transition: 0.25s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-6px) rotate(-3deg);
+      }
+    }
+
+    .logoMascot {
+      top: 190px;
+      left: 5%;
+      width: 320px;
+    }
+
+    .bookMascot {
+      top: 410px;
+      left: 70%;
+      width: 120px;
+    }
+
+    .lampMascot {
+      top: 220px;
+      left: 66%;
+      width: 130px;
+    }
+
+    .mapMascot {
+      top: 60px;
+      left: 43%;
+      width: 140px;
+    }
+
+    .pencilMascot {
+      top: 38px;
+      left: 16%;
+      width: 80px;
+    }
+  }
+
+  /* =========================
+            RIGHT SIDE
+  ========================= */
+  .form-area {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+
+    .title {
+      font-size: 2.6rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-input {
+      width: 380px;
+      padding: 14px 20px;
+      border: 2px solid #222;
+      border-radius: 50px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .eye {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .forgot {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #333;
+      display: block;
+      text-align: right;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-login {
+      width: 380px;
+      padding: 14px;
+      border-radius: 50px;
+      border: 2px solid #000;
+      background: transparent;
+      font-size: 1rem;
+      transition: 0.2s;
+
+      &:hover {
+        background: #00A3FE;
+        color: #fff;
+      }
+    }
+
+    .register {
+      font-size: 0.9rem;
+      text-align: center;
+
+      a {
+        color: #00A3FE;
+        text-decoration: none;
+      }
+    }
+  }
+}

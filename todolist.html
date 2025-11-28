@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="my-css/todolist.css">
+    <link rel="shortcut icon" href="img/LogoMascot.png" type="image/x-icon">
+</head>
+
+
+
+
+<body>
+    <!-- Main Button -->
+
+
+
+
+
+
+
+
+    <section class="custom-section">
+        <div class="container">
+            <div class="orange-box">
+                <!-- Header dalam 1 row -->
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h2 class="mb-0">To Do List</h2>
+                    </div>
+
+
+
+
+                    <div class="col-auto  d-flex gap-3">
+                        <button class="btn add-task-btn" data-bs-toggle="modal" data-bs-target="#taskModal">
+                            + Add Task
+                        </button>
+
+
+
+
+                        <button class="btn calendar-btn">
+                            <a href="calendar.html" class="btn calendar-btn"><i class="ri-calendar-todo-fill"></i>
+                                Calendar</a>
+                        </button>
+
+
+
+
+                    </div>
+
+
+
+
+                    <!-- Search and Filter Section -->
+                    <div class="search-filter-section mb-3">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control search-bar" id="searchInput"
+                                        placeholder="Search tasks...">
+                                    <button class="btn btn-outline-secondary" id="searchBtn" onclick="searchTasks()">
+                                        <i class="ri-search-line"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="category-filters d-flex gap-2 justify-content-end">
+                                    <button class="btn category-filter-btn active" data-category="all"
+                                        onclick="filterTasks('all')">
+                                        All
+                                    </button>
+                                    <button class="btn category-filter-btn" data-category="important"
+                                        onclick="filterTasks('important')"
+                                        style="background-color: #FF7300; color: white;">
+                                        Important
+                                    </button>
+                                    <button class="btn category-filter-btn" data-category="daily"
+                                        onclick="filterTasks('daily')" style="background-color: #FEA1CD; color: white;">
+                                        Daily
+                                    </button>
+                                    <button class="btn category-filter-btn" data-category="school"
+                                        onclick="filterTasks('school')"
+                                        style="background-color: #00A3FE; color: white;">
+                                        School
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="task-list mt-4">
+                        <!-- Task Item -->
+                        <!-- <div class="task-item">
+                            <div class="task-content">
+                                <button class="btn delete-btn">×</button>
+                                <div class="task-details">
+                                    <h5 class="task-title"></h5>
+                                    <p class="task-desc"></p>
+                                    <div class="task-meta">
+                                        <span class="task-date"></span>
+                                        <span class="task-time"></span>
+                                        <span class="task-category"></span>
+                                    </div>
+                                </div>
+                                <button class="btn check-btn">✓</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+
+
+
+                <!-- Konten todo list bakal di sini di bawah -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="taskModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content custom-modal">
+                <!-- Modal Header -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <!-- Modal Header dengan Image -->
+                <div class="modal-header-custom">
+                    <img src="img/headerTodolist.png" alt="Create New Task" class="header-image">
+                </div>
+
+
+
+
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <form>
+                        <!-- Task Name -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Task name:</label>
+                            <input type="text" class="form-control custom-input" placeholder="Enter task name">
+                        </div>
+
+
+
+
+                        <!-- Date & Time Row -->
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label class="form-label fw-semibold">Date:</label>
+                                <input type="date" class="form-control custom-input">
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label fw-semibold">Time:</label>
+                                <input type="time" class="form-control custom-input">
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Desc:</label>
+                            <textarea class="form-control custom-input" rows="3"
+                                placeholder="Enter description"></textarea>
+                        </div>
+
+
+
+
+                        <!-- Category -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Category:</label>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <label class="category-btn important">
+                                    <input type="radio" name="category" value="important">
+                                    <span>Important</span>
+                                </label>
+                                <label class="category-btn daily">
+                                    <input type="radio" name="category" value="daily">
+                                    <span>Daily</span>
+                                </label>
+                                <label class="category-btn school">
+                                    <input type="radio" name="category" value="school">
+                                    <span>School</span>
+                                </label>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn submit-btn w-100" data-bs-dismiss="modal">
+                            Submit
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="todolist.js"></script>
+</body>
+
+
+
+
+</html>
