@@ -137,11 +137,11 @@ nav {
             img {
                 width: 154px;
                 transition: 0.25s ease;
-
-                &:hover {
-                    transform: translateY(-6px) rotate(-3deg) scale(.9);
-                }
             }
+
+            &:hover img {
+    transform: translateY(-6px) rotate(-3deg) scale(.9);
+  }
         }
 
         .anxiousMascot {
@@ -151,11 +151,11 @@ nav {
             img {
                 width: 236px;
                 transition: 0.25s ease;
-
-                &:hover {
-                    transform: translateY(-6px) rotate(-3deg) scale(.9);
-                }
             }
+
+            &:hover img {
+    transform: translateY(-6px) rotate(-3deg) scale(.9);
+  }
         }
 
         .angryMascot {
@@ -166,11 +166,11 @@ nav {
             img {
                 width: 238px;
                 transition: 0.25s ease;
-
-                &:hover {
-                    transform: translateY(-6px) rotate(-3deg) scale(.9);
-                }
             }
+
+            &:hover img {
+    transform: translateY(-6px) rotate(-3deg) scale(.9);
+  }
         }
 
         .sadMascot {
@@ -181,10 +181,10 @@ nav {
             img {
                 width: 186px;
                 transition: 0.25s ease;
+            }
 
-                &:hover {
-                    transform: translateY(-6px) rotate(-3deg) scale(.9);
-                }
+            &:hover img {
+                transform: translateY(-6px) rotate(-3deg) scale(.9);
             }
         }
     }
