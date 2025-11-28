@@ -1,4 +1,5 @@
-let history = [];
+// Ambil data dari localStorage saat halaman dibuka
+let history = JSON.parse(localStorage.getItem("moodHistory")) || [];
 
 const moodMessages = {
     Happy: "abjeah stay happy ya abjeah",
@@ -6,6 +7,9 @@ const moodMessages = {
     Angry: "abjeah dont be mad ya abjeah",
     Anxious: "abjeah stay calm ya abjeah"
 };
+
+// Render data yang sudah tersimpan saat pertama load
+renderHistory();
 
 document.querySelectorAll(".mood-option").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -18,6 +22,9 @@ document.querySelectorAll(".mood-option").forEach(btn => {
         });
 
         history.push({ mood, date: today });
+
+        // Simpan ke localStorage setiap kali ditambah
+        localStorage.setItem("moodHistory", JSON.stringify(history));
 
         renderHistory();
     });
@@ -51,6 +58,7 @@ function renderHistory() {
     });
 }
 
+
 // Notes
 const openModal = document.getElementById("openModal");
 const closeModal = document.getElementById("closeModal");
@@ -69,11 +77,11 @@ closeModal.onclick = () => noteModal.classList.remove("active");
 
 // buat milih warna notesnya
 document.querySelectorAll(".color").forEach(color => {
-  color.onclick = () => {
-    document.querySelectorAll(".color").forEach(c => c.classList.remove("active"));
-    color.classList.add("active");
-    selectedColor = color.dataset.color;
-  };
+    color.onclick = () => {
+        document.querySelectorAll(".color").forEach(c => c.classList.remove("active"));
+        color.classList.add("active");
+        selectedColor = color.dataset.color;
+    };
 });
 
 // load storage
@@ -81,9 +89,9 @@ let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
 // ini buat nge-render notes
 function renderNotes() {
-  notesContainer.innerHTML = "";
-  notes.forEach((note, index) => {
-    notesContainer.innerHTML += `
+    notesContainer.innerHTML = "";
+    notes.forEach((note, index) => {
+        notesContainer.innerHTML += `
       <div class="note-card" style="background:${note.color}">
         <button class="delete-btn" onclick="deleteNote(${index})">
           <i class="ri-delete-bin-6-line"></i>
@@ -92,32 +100,32 @@ function renderNotes() {
         <p>${note.content}</p>
       </div>
     `;
-  });
+    });
 }
 renderNotes();
 
 // buat save notes
 saveNote.onclick = () => {
-  if (noteTitle.value === "" || noteContent.value === "") return alert("Isi dulu!");
+    if (noteTitle.value === "" || noteContent.value === "") return alert("Isi dulu!");
 
-  notes.push({
-    title: noteTitle.value,
-    content: noteContent.value,
-    color: selectedColor
-  });
+    notes.push({
+        title: noteTitle.value,
+        content: noteContent.value,
+        color: selectedColor
+    });
 
-  localStorage.setItem("notes", JSON.stringify(notes));
+    localStorage.setItem("notes", JSON.stringify(notes));
 
-  noteTitle.value = "";
-  noteContent.value = "";
-  noteModal.classList.remove("active");
+    noteTitle.value = "";
+    noteContent.value = "";
+    noteModal.classList.remove("active");
 
-  renderNotes();
+    renderNotes();
 };
 
 // ini buat delet notes
 function deleteNote(index) {
-  notes.splice(index, 1);
-  localStorage.setItem("notes", JSON.stringify(notes));
-  renderNotes();
+    notes.splice(index, 1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    renderNotes();
 }

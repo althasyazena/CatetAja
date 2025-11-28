@@ -165,6 +165,7 @@ nav {
     width: 74px;
     position: absolute;
     transition: 0.25s ease;
+    z-index: 3;
 
     &:hover {
       transform: translateY(-6px) rotate(-3deg) scale(.9);
@@ -178,6 +179,7 @@ nav {
     rotate: -20deg;
     position: absolute;
     transition: 0.25s ease;
+    z-index: 3;
 
     &:hover {
       transform: translateY(-6px) rotate(-3deg) scale(.9);
