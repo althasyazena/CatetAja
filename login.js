@@ -11,7 +11,7 @@ loginBtn.addEventListener("click", function () {
 
     if (!savedUser) {
         alert("Belum ada akun! Silakan register dulu.");
-        window.location.href = "register.html";
+        window.location.href = "index.html";
         return;
     }
 
