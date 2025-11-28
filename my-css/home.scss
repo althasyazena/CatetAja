@@ -132,59 +132,59 @@ nav {
         .happyMascot {
             top: 60px;
             left: 22%;
-            
+
 
             img {
                 width: 154px;
                 transition: 0.25s ease;
 
-            &:hover {
-                transform: translateY(-6px) rotate(-3deg) scale(.9);
-            }
+                &:hover {
+                    transform: translateY(-6px) rotate(-3deg) scale(.9);
+                }
             }
         }
 
         .anxiousMascot {
             top: 60px;
-            
+
 
             img {
                 width: 236px;
                 transition: 0.25s ease;
 
-            &:hover {
-                transform: translateY(-6px) rotate(-3deg) scale(.9);
-            }
+                &:hover {
+                    transform: translateY(-6px) rotate(-3deg) scale(.9);
+                }
             }
         }
 
         .angryMascot {
             top: 340px;
             left: 16%;
-            
+
 
             img {
                 width: 238px;
                 transition: 0.25s ease;
 
-            &:hover {
-                transform: translateY(-6px) rotate(-3deg) scale(.9);
-            }
+                &:hover {
+                    transform: translateY(-6px) rotate(-3deg) scale(.9);
+                }
             }
         }
 
         .sadMascot {
             top: 332px;
             right: 16%;
-            
+
 
             img {
                 width: 186px;
                 transition: 0.25s ease;
 
-            &:hover {
-                transform: translateY(-6px) rotate(-3deg) scale(.9);
-            }
+                &:hover {
+                    transform: translateY(-6px) rotate(-3deg) scale(.9);
+                }
             }
         }
     }
