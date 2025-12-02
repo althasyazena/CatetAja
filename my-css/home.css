@@ -112,12 +112,20 @@ nav .navbar-nav .nav-item a:hover {
 }
 .mood-tracker .mood-opt .happyMascot img {
   width: 154px;
+  transition: 0.25s ease;
+}
+.mood-tracker .mood-opt .happyMascot:hover img {
+  transform: translateY(-6px) rotate(-3deg) scale(0.9);
 }
 .mood-tracker .mood-opt .anxiousMascot {
   top: 60px;
 }
 .mood-tracker .mood-opt .anxiousMascot img {
   width: 236px;
+  transition: 0.25s ease;
+}
+.mood-tracker .mood-opt .anxiousMascot:hover img {
+  transform: translateY(-6px) rotate(-3deg) scale(0.9);
 }
 .mood-tracker .mood-opt .angryMascot {
   top: 340px;
@@ -125,6 +133,10 @@ nav .navbar-nav .nav-item a:hover {
 }
 .mood-tracker .mood-opt .angryMascot img {
   width: 238px;
+  transition: 0.25s ease;
+}
+.mood-tracker .mood-opt .angryMascot:hover img {
+  transform: translateY(-6px) rotate(-3deg) scale(0.9);
 }
 .mood-tracker .mood-opt .sadMascot {
   top: 332px;
@@ -132,6 +144,10 @@ nav .navbar-nav .nav-item a:hover {
 }
 .mood-tracker .mood-opt .sadMascot img {
   width: 186px;
+  transition: 0.25s ease;
+}
+.mood-tracker .mood-opt .sadMascot:hover img {
+  transform: translateY(-6px) rotate(-3deg) scale(0.9);
 }
 .mood-tracker .weekly-title {
   font-size: 2.4rem;

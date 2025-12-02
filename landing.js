@@ -13,8 +13,10 @@
         'down': (s) => ({ x: 1 * s * 40, y: 1 * s * 220 }),
     };
 
+    // ini buat jadi pembatas nilainya, gak lebih dari a dan b jadi nilai scroll tetep 1 dan 0
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
+    // ini buat ngitung seberapa jauh object yang di hero keliatan pas di scroll, 0 belum keliatan kalo 1 udah keliatan
     function heroProgress() {
         const rect = hero.getBoundingClientRect();
         const vpH = window.innerHeight;
@@ -24,6 +26,7 @@
         return clamp(p, 0, 1);
     }
 
+    // buat baca data dari setiap object, dir buat arah gerak, speed kecepatan gerak, rotMag buat rotasi, base buat rotasi awal
     const items = objects.map((el) => {
         const dir = el.dataset.dir || 'right';
         const speed = parseFloat(el.dataset.speed) || 1;
@@ -33,19 +36,28 @@
         return { el, dir, speed, rotMag, base, getTarget };
     });
 
+    // ini buat si object ga dijalankan terus menerus
     let ticking = false;
+
+    // fungsi pas dijalanin atau discroll
     function onScrollOrResize() {
         if (!ticking) {
             window.requestAnimationFrame(() => {
-                const p = heroProgress();
+                const p = heroProgress(); // progress scroll hero
                 const easeP = p;
 
+                // ini loop setiap object buat ngatur gerakannya
                 items.forEach((it, i) => {
                     const { el, speed, rotMag, base, getTarget } = it;
+
+                    // ambil arah sesuai speed
                     const t = getTarget(speed);
+
+                    // posisi geser sesuai scroll
                     const tx = t.x * easeP;
                     const ty = t.y * easeP;
 
+                    // rotasi beda arahnya
                     const rot = base + rotMag * easeP * ((i % 2 === 0) ? 1 : -1);
 
                     el.style.transform = `translate(${tx}px, ${ty}px) rotate(${rot}deg)`;
@@ -57,7 +69,10 @@
         }
     }
 
+    // event listener pas scroll
     window.addEventListener('scroll', onScrollOrResize, { passive: true });
+
+    // event listener pas ukuran layar berubah
     window.addEventListener('resize', onScrollOrResize);
     window.addEventListener('load', () => {
         setTimeout(onScrollOrResize, 60);

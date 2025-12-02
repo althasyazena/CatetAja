@@ -184,21 +184,23 @@ nav .navbar-nav .nav-item a:hover {
 }
 .about-section .left-img {
   top: 340px;
-  left: 2%;
-  width: 94px;
+  left: 1%;
+  width: 74px;
   position: absolute;
   transition: 0.25s ease;
+  z-index: 3;
 }
 .about-section .left-img:hover {
   transform: translateY(-6px) rotate(-3deg) scale(0.9);
 }
 .about-section .right-img {
   top: 454px;
-  left: 87%;
-  width: 152px;
+  left: 88%;
+  width: 112px;
   rotate: -20deg;
   position: absolute;
   transition: 0.25s ease;
+  z-index: 3;
 }
 .about-section .right-img:hover {
   transform: translateY(-6px) rotate(-3deg) scale(0.9);
@@ -438,4 +440,115 @@ nav .navbar-nav .nav-item a:hover {
   margin-left: 30px;
   text-decoration: none;
   color: #5f6c82;
+}
+
+@media (max-width: 1200px) {
+  #hero .bookPink {
+    left: 59%;
+  }
+  #hero .starYellow {
+    top: 236px;
+    left: 39%;
+    width: 96px;
+  }
+  #hero .lampBlue {
+    top: 380px;
+    left: 43%;
+    width: 98px;
+  }
+  #hero .lampOrange {
+    top: 202px;
+  }
+  #hero .starPink {
+    top: 192px;
+  }
+  #hero .pencilBlue {
+    top: 202px;
+    left: 65%;
+  }
+  #hero .starBlue {
+    top: 370px;
+    left: 53%;
+    width: 96px;
+  }
+  .about-section .left-img {
+    top: 400px;
+    width: 64px;
+  }
+  .about-section .right-img {
+    top: 620px;
+    left: 90%;
+  }
+  .fitur-section {
+    height: 820px;
+  }
+  .fitur-section .fitur-prev .toDoList {
+    top: 50px;
+    left: 16%;
+    width: 218px;
+  }
+  .fitur-section .fitur-prev .moodTracker {
+    top: 38px;
+    left: 58%;
+    width: 238px;
+  }
+  .fitur-section .fitur-prev .calendar {
+    top: 330px;
+    left: 14%;
+    width: 246px;
+  }
+  .fitur-section .fitur-prev .notes {
+    top: 330px;
+    left: 60%;
+    width: 218px;
+  }
+  .fitur-section .fileMascot {
+    top: 220px;
+    left: 65%;
+    width: 420px;
+  }
+  .fitur-section .pencilFullMascot {
+    left: 59%;
+    width: 190px;
+  }
+  .word h1 {
+    font-size: 4rem;
+  }
+  .word .tilt-image {
+    width: 300px;
+  }
+}
+@media (max-width: 991px) {
+  .fitur-section {
+    height: 820px;
+  }
+  .fitur-section .fitur-prev .toDoList {
+    top: 50px;
+    left: 0%;
+    width: 200px;
+  }
+  .fitur-section .fitur-prev .moodTracker {
+    top: 28px;
+    left: 29%;
+    width: 228px;
+  }
+  .fitur-section .fitur-prev .calendar {
+    top: 280px;
+    left: 0%;
+    width: 226px;
+  }
+  .fitur-section .fitur-prev .notes {
+    top: 270px;
+    left: 32%;
+    width: 200px;
+  }
+  .fitur-section .fileMascot {
+    top: 220px;
+    left: 65%;
+    width: 380px;
+  }
+  .fitur-section .pencilFullMascot {
+    left: 59%;
+    width: 190px;
+  }
 }/*# sourceMappingURL=landing.css.map */
